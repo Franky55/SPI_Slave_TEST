@@ -26,10 +26,10 @@
 #include "driver/gpio.h"
 
 // Pins in use
-#define GPIO_MOSI 12
+#define GPIO_MOSI 11
 #define GPIO_MISO 13
-#define GPIO_SCLK 15
-#define GPIO_CS 14
+#define GPIO_SCLK 12
+#define GPIO_CS 10
 
 //Main application
 void app_main(void)
@@ -61,7 +61,7 @@ void app_main(void)
 
 	printf("Slave output:\n");
     while(1) {
-        t.length=128*8;
+        t.length=16*8;
         t.rx_buffer=recvbuf;
         spi_slave_transmit(SPI3_HOST, &t, portMAX_DELAY);
         printf("Received: %s\n", recvbuf);
